@@ -4,6 +4,8 @@ import android.content.Intent
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -45,11 +47,11 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.koncerts.observe(this, Observer { koncerts ->
             if (koncerts.isEmpty()) {
-                noConcertsTextView.visibility = TextView.VISIBLE
-                concertsLayout.visibility = LinearLayout.GONE
+                fadeIn(noConcertsTextView)
+                fadeOut(concertsLayout)
             } else {
-                noConcertsTextView.visibility = TextView.GONE
-                concertsLayout.visibility = LinearLayout.VISIBLE
+                fadeOut(noConcertsTextView)
+                fadeIn(concertsLayout)
                 concertsLayout.removeAllViews()
                 for (koncert in koncerts) {
                     val concertView = layoutInflater.inflate(R.layout.item_concert, concertsLayout, false)
@@ -111,5 +113,17 @@ class MainActivity : AppCompatActivity() {
     companion object {
         private const val ADD_CONCERT_REQUEST_CODE = 1
         private const val EDIT_CONCERT_REQUEST_CODE = 2
+    }
+
+    private fun fadeIn(view: View) {
+        val fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in)
+        view.startAnimation(fadeIn)
+        view.visibility = View.VISIBLE
+    }
+
+    private fun fadeOut(view: View) {
+        val fadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out)
+        view.startAnimation(fadeOut)
+        view.visibility = View.GONE
     }
 }

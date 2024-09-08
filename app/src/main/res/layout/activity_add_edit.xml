@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Upload Image"
-            style="@style/PrimaryButton"
+            style="@drawable/button_secondary"
             android:layout_marginEnd="8dp"/>
 
         <Button
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Take Photo"
-            style="@style/PrimaryButton"/>
+            style="@drawable/button_secondary"/>
     </LinearLayout>
 
     <!-- EditText fields -->
@@ -95,7 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Save"
-            style="@style/PrimaryButton"
+            style="@drawable/button_primary"
             android:layout_marginEnd="8dp"/>
 
         <Button
@@ -104,7 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Cancel"
-            style="@style/SecondaryButton"/>
+            style="@drawable/button_primary"/>
     </LinearLayout>
 
 </LinearLayout>

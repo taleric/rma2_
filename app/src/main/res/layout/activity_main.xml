@@ -18,7 +18,7 @@
             android:layout_gravity="end"
             android:layout_marginBottom="16dp"
             android:text="+"
-            style="@style/PrimaryButton" />
+            style="@drawable/button_primary" />
 
         <!-- TextView for placeholder message -->
         <TextView

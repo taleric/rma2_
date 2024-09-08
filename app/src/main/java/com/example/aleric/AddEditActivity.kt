@@ -8,6 +8,8 @@ import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
+import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -54,6 +56,11 @@ class AddEditActivity : AppCompatActivity() {
         KoncertViewModelFactory(KoncertRepository(AppDatabase.getDatabase(applicationContext).koncertDao()))
     }
 
+    private fun applyButtonClickAnimation(button: Button) {
+        val clickAnimation = AnimationUtils.loadAnimation(this, R.anim.button_click)
+        button.startAnimation(clickAnimation)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_edit)
@@ -85,6 +92,7 @@ class AddEditActivity : AppCompatActivity() {
         }
 
         saveButton.setOnClickListener {
+            applyButtonClickAnimation(saveButton)
             val naziv = nazivEditText.text.toString()
             val izvođač = izvođačEditText.text.toString()
             val lokacija = lokacijaEditText.text.toString()
@@ -123,6 +131,7 @@ class AddEditActivity : AppCompatActivity() {
         }
 
         cancelButton.setOnClickListener {
+            applyButtonClickAnimation(cancelButton)
             finish()
         }
     }
@@ -215,6 +224,18 @@ class AddEditActivity : AppCompatActivity() {
         } else {
             Log.e("AddEditActivity", "Result not OK")
         }
+    }
+
+    private fun fadeIn(view: View) {
+        val fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in)
+        view.startAnimation(fadeIn)
+        view.visibility = View.VISIBLE
+    }
+
+    private fun fadeOut(view: View) {
+        val fadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out)
+        view.startAnimation(fadeOut)
+        view.visibility = View.GONE
     }
 
 }
