@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".AddEditActivity">
+
+    <!-- EditText for 'Naziv' -->
+    <EditText
+        android:id="@+id/nazivEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Naziv" />
+
+    <!-- EditText for 'Izvođač' -->
+    <EditText
+        android:id="@+id/izvođačEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Izvođač" />
+
+    <!-- EditText for 'Lokacija' -->
+    <EditText
+        android:id="@+id/lokacijaEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Lokacija" />
+
+    <!-- EditText for 'Datum' -->
+    <EditText
+        android:id="@+id/datumEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Datum" />
+
+    <!-- EditText for 'Opis' -->
+    <EditText
+        android:id="@+id/opisEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Opis" />
+
+    <!-- ImageView for 'Slika' -->
+    <ImageView
+        android:id="@+id/slikaImageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop" />
+
+    <!-- Button to upload image -->
+    <Button
+        android:id="@+id/uploadImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload Image" />
+
+    <!-- Button to take photo -->
+    <Button
+        android:id="@+id/takePhotoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Take Photo" />
+
+    <!-- Button to save the event -->
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save" />
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel" />
+
+</LinearLayout>

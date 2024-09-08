@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Button to add a new concert (at the top) -->
+
+        <!-- TextView for placeholder message -->
+        <Button
+            android:id="@+id/addButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginBottom="16dp"
+            android:text="+" />
+
+        <TextView
+            android:id="@+id/noConcertsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Click + to add your first concert"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <!-- LinearLayout to display concerts -->
+        <LinearLayout
+            android:id="@+id/concertsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginTop="16dp" />
+    </LinearLayout>
+</ScrollView>
