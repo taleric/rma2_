@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Upload Image"
-            style="@drawable/button_secondary"
+            style="@style/ButtonPrimary"
             android:layout_marginEnd="8dp"/>
 
         <Button
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Take Photo"
-            style="@drawable/button_secondary"/>
+            style="@style/ButtonPrimary"/>
     </LinearLayout>
 
     <!-- EditText fields -->

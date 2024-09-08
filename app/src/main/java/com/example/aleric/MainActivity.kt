@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.Button
@@ -32,9 +33,21 @@ class MainActivity : AppCompatActivity() {
     private lateinit var noConcertsTextView: TextView
     private lateinit var concertsLayout: LinearLayout
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+
+            val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+            if (prefs.getBoolean("is_first_run", true)) {
+                val intent = Intent(this, WelcomeActivity::class.java)
+                startActivity(intent)
+                finish()
+            } else {
+                setContentView(R.layout.activity_main)
+                setupUI()
+            }
+        }
+
+        private fun setupUI() {
 
         addButton = findViewById(R.id.addButton)
         noConcertsTextView = findViewById(R.id.noConcertsTextView)
@@ -101,6 +114,7 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.fetchKoncerts()
     }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)

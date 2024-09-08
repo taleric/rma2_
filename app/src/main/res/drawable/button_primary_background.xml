@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- In res/drawable/button_primary_background.xml -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <gradient
         android:angle="45"
-        android:startColor="@color/black"
-        android:endColor="@drawable/button_primary_background"
+        android:startColor="@color/primaryColor"
+        android:endColor="@color/black"
         android:type="linear" />
     <corners android:radius="8dp"/>
     <padding android:left="16dp" android:top="8dp" android:right="16dp" android:bottom="8dp"/>
