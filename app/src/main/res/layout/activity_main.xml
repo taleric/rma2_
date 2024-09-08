@@ -11,23 +11,24 @@
         android:orientation="vertical">
 
         <!-- Button to add a new concert (at the top) -->
-
-        <!-- TextView for placeholder message -->
         <Button
             android:id="@+id/addButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
+            android:layout_gravity="end"
             android:layout_marginBottom="16dp"
-            android:text="+" />
+            android:text="+"
+            style="@style/PrimaryButton" />
 
+        <!-- TextView for placeholder message -->
         <TextView
             android:id="@+id/noConcertsTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Click + to add your first concert"
             android:textSize="18sp"
-            android:visibility="gone" />
+            android:visibility="gone"
+            style="@style/PlaceholderText" />
 
         <!-- LinearLayout to display concerts -->
         <LinearLayout
@@ -37,5 +38,6 @@
             android:orientation="vertical"
             android:visibility="gone"
             android:layout_marginTop="16dp" />
+
     </LinearLayout>
 </ScrollView>

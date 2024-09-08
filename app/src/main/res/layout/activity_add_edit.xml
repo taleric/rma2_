@@ -8,73 +8,103 @@
     android:padding="16dp"
     tools:context=".AddEditActivity">
 
-    <!-- EditText for 'Naziv' -->
-    <EditText
-        android:id="@+id/nazivEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Naziv" />
-
-    <!-- EditText for 'Izvođač' -->
-    <EditText
-        android:id="@+id/izvođačEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Izvođač" />
-
-    <!-- EditText for 'Lokacija' -->
-    <EditText
-        android:id="@+id/lokacijaEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Lokacija" />
-
-    <!-- EditText for 'Datum' -->
-    <EditText
-        android:id="@+id/datumEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Datum" />
-
-    <!-- EditText for 'Opis' -->
-    <EditText
-        android:id="@+id/opisEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Opis" />
-
-    <!-- ImageView for 'Slika' -->
+    <!-- ImageView for 'Slika' with default image -->
     <ImageView
         android:id="@+id/slikaImageView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        android:background="@drawable/default_image"
+        android:layout_marginBottom="16dp"/>
 
-    <!-- Button to upload image -->
-    <Button
-        android:id="@+id/uploadImageButton"
-        android:layout_width="wrap_content"
+    <!-- Buttons to upload image and take photo next to each other -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Upload Image" />
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
 
-    <!-- Button to take photo -->
-    <Button
-        android:id="@+id/takePhotoButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Take Photo" />
+        <Button
+            android:id="@+id/uploadImageButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Upload Image"
+            style="@style/PrimaryButton"
+            android:layout_marginEnd="8dp"/>
 
-    <!-- Button to save the event -->
-    <Button
-        android:id="@+id/saveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save" />
+        <Button
+            android:id="@+id/takePhotoButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Take Photo"
+            style="@style/PrimaryButton"/>
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/cancelButton"
-        android:layout_width="wrap_content"
+    <!-- EditText fields -->
+    <EditText
+        android:id="@+id/nazivEditText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cancel" />
+        android:hint="Naziv"
+        style="@style/PrimaryEditText"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/izvođačEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Izvođač"
+        style="@style/PrimaryEditText"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/lokacijaEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Lokacija"
+        style="@style/PrimaryEditText"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/datumEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Datum"
+        style="@style/PrimaryEditText"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/opisEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Opis"
+        style="@style/PrimaryEditText"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Buttons to save and cancel next to each other -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Save"
+            style="@style/PrimaryButton"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cancel"
+            style="@style/SecondaryButton"/>
+    </LinearLayout>
 
 </LinearLayout>

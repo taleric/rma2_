@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Button Styles -->
+    <style name="PrimaryButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_primary</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="SecondaryButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_secondary</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- EditText Style -->
+    <style name="PrimaryEditText">
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:background">@drawable/edittext_background</item>
+    </style>
+
+    <!-- Text Styles -->
+    <style name="PrimaryText">
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="PlaceholderText">
+        <item name="android:textColor">@color/placeholderColor</item>
+    </style>
+
+    <style name="PrimaryTextBold">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

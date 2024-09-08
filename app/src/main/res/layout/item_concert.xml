@@ -6,64 +6,124 @@
     android:orientation="vertical"
     android:padding="8dp"
     android:layout_marginBottom="8dp"
-    android:background="@android:color/white"
+    android:background="@drawable/item_concert_background"
     android:layout_marginTop="8dp">
 
+    <!-- ImageView for concert image -->
     <ImageView
         android:id="@+id/concertImageView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
         android:layout_marginBottom="8dp"
-        android:background="@android:color/darker_gray" />
+        android:background="@drawable/default_image2"/>
 
-    <TextView
-        android:id="@+id/nazivTextView"
+    <!-- TextView for 'Naziv' -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:text="Naziv: " />
+        android:orientation="horizontal"
+        android:layout_marginBottom="4dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/nazivTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="Naziv  "
+            style="@style/PrimaryTextBold" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/izvođačTextView"
+    <!-- TextView for 'Izvođač' -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:text="Izvođač: " />
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_izvodac" />
+        <TextView
+            android:id="@+id/izvođačTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            style="@style/PrimaryText" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/lokacijaTextView"
+    <!-- TextView for 'Lokacija' -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:text="Lokacija: " />
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_lokacija" />
+        <TextView
+            android:id="@+id/lokacijaTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            style="@style/PrimaryText" />
+    </LinearLayout>
 
+    <!-- TextView for 'Datum' -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="8dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_datum" />
     <TextView
         android:id="@+id/datumTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="14sp"
-        android:text="Datum: " />
-
+        style="@style/PrimaryText"
+        android:layout_marginBottom="4dp"/>
+    </LinearLayout>
+    <!-- TextView for 'Opis' -->
     <TextView
         android:id="@+id/opisTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="14sp"
-        android:text="Opis: " />
-
-    <Button
-        android:id="@+id/editButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Edit"
-        android:layout_marginTop="8dp"/>
-
-    <Button
-        android:id="@+id/deleteButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:text="Opis "
+        style="@style/PrimaryText"
         android:layout_marginTop="8dp"
-        android:text="Delete" />
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Edit and Delete Buttons -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <Button
+            android:id="@+id/editButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit"
+            style="@style/SecondaryButton"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/deleteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            style="@style/SecondaryButton" />
+    </LinearLayout>
 
 </LinearLayout>
