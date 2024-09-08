@@ -86,8 +86,10 @@ class AddEditActivity : AppCompatActivity() {
             datumEditText.setText(koncert.datum)
             opisEditText.setText(koncert.opis)
             saveButton.text = "Save Event"
-            koncert.slika?.let { imageUrl ->
-                Glide.with(this).load(imageUrl).into(slikaImageView)
+            if (koncert.slika.isNotEmpty()) {
+                val fileUri = Uri.parse(koncert.slika)
+                Glide.with(this).load(fileUri).into(slikaImageView)
+                selectedImageUri = fileUri
             }
         }
 

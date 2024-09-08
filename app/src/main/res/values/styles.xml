@@ -14,10 +14,11 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <!-- Button Style -->
     <style name="ButtonPrimary">
-        <item name="android:background">@drawable/button_primary</item> <!-- Reference your shape drawable here -->
-        <item name="android:textColor">@android:color/white</item> <!-- Text color for contrast -->
-        <item name="android:padding">12dp</item> <!-- Adjust padding as needed -->
+        <item name="android:background">@drawable/button_primary</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:padding">12dp</item>
     </style>
 
     <style name="PlaceholderText">

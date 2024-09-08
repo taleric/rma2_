@@ -8,7 +8,6 @@
     android:padding="16dp"
     tools:context=".AddEditActivity">
 
-    <!-- ImageView for 'Slika' with default image -->
     <ImageView
         android:id="@+id/slikaImageView"
         android:layout_width="match_parent"
@@ -83,7 +82,6 @@
         style="@style/PrimaryEditText"
         android:layout_marginBottom="16dp"/>
 
-    <!-- Buttons to save and cancel next to each other -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

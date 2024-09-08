@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
                 concertsLayout.removeAllViews()
                 for (koncert in koncerts) {
                     val concertView = layoutInflater.inflate(R.layout.item_concert, concertsLayout, false)
-                    val imageView = concertView.findViewById<ImageView>(R.id.concertImageView)
+                    val imageView = concertView.findViewById<ImageView>(R.id.slikaImageView)
                     val nazivTextView = concertView.findViewById<TextView>(R.id.nazivTextView)
                     val izvođačTextView = concertView.findViewById<TextView>(R.id.izvođačTextView)
                     val lokacijaTextView = concertView.findViewById<TextView>(R.id.lokacijaTextView)
@@ -77,11 +77,11 @@ class MainActivity : AppCompatActivity() {
                     val editButton = concertView.findViewById<Button>(R.id.editButton)
                     val deleteButton = concertView.findViewById<Button>(R.id.deleteButton)
 
-                    nazivTextView.text = "Naziv: ${koncert.naziv}"
-                    izvođačTextView.text = "Izvođač: ${koncert.izvođač}"
-                    lokacijaTextView.text = "Lokacija: ${koncert.lokacija}"
-                    datumTextView.text = "Datum: ${koncert.datum}"
-                    opisTextView.text = "Opis: ${koncert.opis}"
+                    nazivTextView.text = " ${koncert.naziv}"
+                    izvođačTextView.text = " ${koncert.izvođač}"
+                    lokacijaTextView.text = " ${koncert.lokacija}"
+                    datumTextView.text = " ${koncert.datum}"
+                    opisTextView.text = " ${koncert.opis}"
 
                     if (koncert.slika.isNotEmpty()) {
                         val fileUri = Uri.parse(koncert.slika)

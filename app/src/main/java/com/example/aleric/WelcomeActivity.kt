@@ -20,7 +20,6 @@ class WelcomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_welcome)
 
         startButton = findViewById(R.id.startButton)
-        welcomeImage = findViewById(R.id.welcomeImage)
         welcomeText = findViewById(R.id.welcomeText)
 
         startButton.setOnClickListener {

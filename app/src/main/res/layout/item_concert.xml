@@ -11,7 +11,7 @@
 
     <!-- ImageView for concert image -->
     <ImageView
-        android:id="@+id/concertImageView"
+        android:id="@+id/slikaImageView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
@@ -46,12 +46,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_izvodac" />
+
         <TextView
             android:id="@+id/izvođačTextView"
+            style="@style/PrimaryText"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
-            style="@style/PrimaryText" />
+            android:layout_height="match_parent"
+            android:textSize="15sp" />
     </LinearLayout>
 
     <!-- TextView for 'Lokacija' -->
