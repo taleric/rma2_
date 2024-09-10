@@ -8,5 +8,6 @@
     <color name="secondaryColorDark">#018786</color>
     <color name="defaultImageBackground">#E0E0E0</color>
     <color name="placeholderColor">#9E9E9E</color>
+    <color name="gray">#A9A9A9</color>
 </resources>
 

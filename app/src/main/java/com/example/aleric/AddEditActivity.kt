@@ -1,6 +1,7 @@
 package com.example.aleric
 
 import android.app.Activity
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -10,9 +11,12 @@ import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.view.animation.AnimationUtils
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Spinner
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.aleric.data.AppDatabase
 import com.example.aleric.repository.KoncertRepository
@@ -28,6 +32,7 @@ import com.bumptech.glide.Glide
 import com.example.aleric.R
 import java.io.File
 import java.io.IOException
+import java.util.Calendar
 
 class AddEditActivity : AppCompatActivity() {
 
@@ -41,7 +46,7 @@ class AddEditActivity : AppCompatActivity() {
     private lateinit var uploadImageButton: Button
     private lateinit var takePhotoButton: Button
     private lateinit var cancelButton: Button
-
+    private lateinit var izvođačSpinner: Spinner
 
     private val GALLERY_REQUEST_CODE = 1001
     private val CAMERA_REQUEST_CODE = 1002
@@ -66,7 +71,7 @@ class AddEditActivity : AppCompatActivity() {
         setContentView(R.layout.activity_add_edit)
 
         nazivEditText = findViewById(R.id.nazivEditText)
-        izvođačEditText = findViewById(R.id.izvođačEditText)
+        izvođačSpinner = findViewById(R.id.izvođačSpinner)
         lokacijaEditText = findViewById(R.id.lokacijaEditText)
         datumEditText = findViewById(R.id.datumEditText)
         slikaImageView = findViewById(R.id.slikaImageView)
@@ -76,12 +81,74 @@ class AddEditActivity : AppCompatActivity() {
         takePhotoButton = findViewById(R.id.takePhotoButton)
         cancelButton = findViewById(R.id.cancelButton)
 
+        datumEditText.setOnClickListener {
+            val calendar = Calendar.getInstance()
+            val year = calendar.get(Calendar.YEAR)
+            val month = calendar.get(Calendar.MONTH)
+            val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+            val datePickerDialog = DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
+                val selectedDate = "$selectedDay/${selectedMonth + 1}/$selectedYear"
+                datumEditText.setText(selectedDate)
+            }, year, month, day)
+
+            datePickerDialog.show()
+        }
+
+
+        val artists = listOf("Select artist...") + listOf(
+            "Adele",
+            "Beyoncé",
+            "Billie Eilish",
+            "Bruno Mars",
+            "Coldplay",
+            "Drake",
+            "Ed Sheeran",
+            "Eminem",
+            "Justin Bieber",
+            "Kanye West",
+            "Lady Gaga",
+            "Lana Del Rey",
+            "Maroon 5",
+            "Post Malone",
+            "Rihanna",
+            "Taylor Swift",
+            "The Weeknd"
+        )
+
+        val adapter = object : ArrayAdapter<String>(this, R.layout.spinner_item, artists) {
+            override fun isEnabled(position: Int): Boolean {
+                return position != 0 // Disable the first item
+            }
+
+            override fun getView(position: Int, convertView: View?, parent: android.view.ViewGroup): View {
+                val view = super.getView(position, convertView, parent)
+                if (position == 0) {
+                    // Set the placeholder item to have a different style (e.g., disabled)
+                    (view as TextView).setTextColor(ContextCompat.getColor(context, R.color.gray))
+                }
+                return view
+            }
+
+            override fun getDropDownView(position: Int, convertView: View?, parent: android.view.ViewGroup): View {
+                val view = super.getDropDownView(position, convertView, parent)
+                if (position == 0) {
+                    // Disable the placeholder item
+                    (view as TextView).setTextColor(ContextCompat.getColor(context, R.color.gray))
+                }
+                return view
+            }
+        }
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        izvođačSpinner.adapter = adapter
+
 
         koncertToEdit = intent.getParcelableExtra("koncert")
 
         koncertToEdit?.let { koncert ->
+            val artistPosition = adapter.getPosition(koncert.izvođač)
+            izvođačSpinner.setSelection(artistPosition)
             nazivEditText.setText(koncert.naziv)
-            izvođačEditText.setText(koncert.izvođač)
             lokacijaEditText.setText(koncert.lokacija)
             datumEditText.setText(koncert.datum)
             opisEditText.setText(koncert.opis)
@@ -96,7 +163,7 @@ class AddEditActivity : AppCompatActivity() {
         saveButton.setOnClickListener {
             applyButtonClickAnimation(saveButton)
             val naziv = nazivEditText.text.toString()
-            val izvođač = izvođačEditText.text.toString()
+            val izvođač = izvođačSpinner.selectedItem.toString()
             val lokacija = lokacijaEditText.text.toString()
             val datum = datumEditText.text.toString()
             val slika = selectedImageUri?.toString() ?: ""

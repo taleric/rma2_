@@ -50,12 +50,10 @@
         style="@style/PrimaryEditText"
         android:layout_marginBottom="8dp"/>
 
-    <EditText
-        android:id="@+id/izvođačEditText"
+    <Spinner
+        android:id="@+id/izvođačSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Izvođač"
-        style="@style/PrimaryEditText"
         android:layout_marginBottom="8dp"/>
 
     <EditText
@@ -71,6 +69,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Datum"
+        android:focusable="false"
         style="@style/PrimaryEditText"
         android:layout_marginBottom="8dp"/>
 
